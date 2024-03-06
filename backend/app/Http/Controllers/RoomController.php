@@ -2,23 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class RoomController extends Controller
 {
-    public function __construct()
-    {
-        return $this->middleware('auth:api');
-    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = User::with('role')->get();
+        $rooms = Room::with('floor')->get();
 
-        return response()->json($data);
+        return response()->json($rooms);
     }
 
     /**
@@ -40,7 +36,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Room $room)
     {
         //
     }
@@ -48,7 +44,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Room $room)
     {
         //
     }
@@ -56,7 +52,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Room $room)
     {
         //
     }
@@ -64,7 +60,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Room $room)
     {
         //
     }

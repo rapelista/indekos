@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FloorController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +31,9 @@ Route::group([
     });
 
     Route::resources([
-        'users' => UserController::class
+        'users' => UserController::class,
+        'floors' => FloorController::class,
+        'rooms' => RoomController::class,
     ]);
 
 });
