@@ -17,21 +17,18 @@ export const useUserTable = () => {
     const columns: ColumnDef<User>[] = [
         {
             accessorKey: "name",
-            header: ({ column }) => (
-                <DataTableColumnHeader column={column} title="Name" />
-            ),
+            id: "Name",
+            header: ({ column }) => <DataTableColumnHeader column={column} />,
         },
         {
             accessorKey: "email",
-            header: ({ column }) => (
-                <DataTableColumnHeader column={column} title="Email" />
-            ),
+            id: "Email",
+            header: ({ column }) => <DataTableColumnHeader column={column} />,
         },
         {
             accessorKey: "role.name",
-            header: ({ column }) => (
-                <DataTableColumnHeader column={column} title="Role" />
-            ),
+            id: "Role",
+            header: ({ column }) => <DataTableColumnHeader column={column} />,
         },
         {
             id: "actions",
@@ -40,9 +37,9 @@ export const useUserTable = () => {
                 return (
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" className="h-8 w-8 p-0">
+                            <Button variant="ghost" className="w-8 h-8 p-0">
                                 <span className="sr-only">Open menu</span>
-                                <MoreHorizontal className="h-4 w-4" />
+                                <MoreHorizontal className="w-4 h-4" />
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">

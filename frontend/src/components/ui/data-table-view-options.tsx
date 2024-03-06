@@ -24,7 +24,7 @@ export function DataTableViewOptions<TData>({
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button variant="outline" className="flex">
-                    <SlidersHorizontal className="h-4 w-4" />
+                    <SlidersHorizontal className="w-4 h-4" />
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[150px]">

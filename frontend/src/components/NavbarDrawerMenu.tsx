@@ -7,6 +7,7 @@ import {
     BedIcon,
     Settings,
     LayoutDashboard,
+    AlignVerticalJustifyEnd,
 } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
@@ -44,7 +45,7 @@ export const NavbarDrawerMenu = ({ close }: INavbarDrawerMenu) => {
         {
             text: "Lantai",
             link: "/floors",
-            icon: DoorClosed,
+            icon: AlignVerticalJustifyEnd,
         },
         {
             text: "Furnitur",
@@ -71,7 +72,7 @@ export const NavbarDrawerMenu = ({ close }: INavbarDrawerMenu) => {
                         className="w-full [&>*]:w-full [&>*]:block [&>*]:py-3 [&>*]:px-4"
                     >
                         {link === null ? (
-                            <Small className="text-gray-500 font-bold">
+                            <Small className="font-bold text-gray-500">
                                 {text}
                             </Small>
                         ) : (
