@@ -16,16 +16,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        if(request()->exists('role_id')) {
-            $data = User::where('role_id', '=', request()->get('role_id'))->get();
-        } else {
-            $data = User::all();
-        }
+        $data = User::all();
 
-        return response()->json([
-            'data' => $data,
-            'message' => 'Success!',
-        ]);
+        return response()->json($data);
     }
 
     /**
