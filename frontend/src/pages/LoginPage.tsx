@@ -10,7 +10,9 @@ export const LoginPage = () => {
 
     return (
         <div className="flex justify-center items-center min-h-screen min-w-screen">
-            <LoginCard />
+            <div className="container">
+                <LoginCard />
+            </div>
         </div>
     );
 };

@@ -1,6 +1,7 @@
 import {
     AlertDialog,
     AlertDialogAction,
+    AlertDialogCancel,
     AlertDialogContent,
     AlertDialogFooter,
     AlertDialogHeader,
@@ -8,24 +9,18 @@ import {
 } from "@/components/ui/alert-dialog";
 
 import { ShieldCheck, ShieldOff } from "lucide-react";
-import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 type LoginDialogProps = {
     open: boolean;
     success: boolean;
     error: boolean;
-    continue: () => void;
+    onOpenChange: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const LoginDialog = ({
-    open,
-    success,
-    error,
-    continue: onContinue,
-}: LoginDialogProps) => {
-    const navigate = useNavigate();
+export const LoginDialog = ({ error, success, ...props }: LoginDialogProps) => {
     return (
-        <AlertDialog open={open}>
+        <AlertDialog {...props}>
             <AlertDialogContent>
                 {success && (
                     <>
@@ -36,13 +31,8 @@ export const LoginDialog = ({
                             <ShieldCheck className="h-16 w-16" />
                         </div>
                         <AlertDialogFooter>
-                            <AlertDialogAction
-                                onClick={() => {
-                                    navigate("/dashboard");
-                                    onContinue();
-                                }}
-                            >
-                                Dashboard
+                            <AlertDialogAction asChild>
+                                <Link to={"/dashboard"}>Dashboard</Link>
                             </AlertDialogAction>
                         </AlertDialogFooter>
                     </>
@@ -57,9 +47,7 @@ export const LoginDialog = ({
                             <ShieldOff className="h-16 w-16" />
                         </div>
                         <AlertDialogFooter>
-                            <AlertDialogAction onClick={onContinue}>
-                                Ulangi
-                            </AlertDialogAction>
+                            <AlertDialogCancel>Ulangi</AlertDialogCancel>
                         </AlertDialogFooter>
                     </>
                 )}

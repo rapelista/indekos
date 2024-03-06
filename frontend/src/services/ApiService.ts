@@ -13,9 +13,17 @@ api.interceptors.request.use((config) => {
 });
 
 class ApiService {
+    get<T>(endpoint: string, config?: AxiosRequestConfig<T>): Promise<T> {
+        return new Promise((resolve, reject) => {
+            api.get(endpoint, config)
+                .then((response) => resolve(response.data))
+                .catch((error) => reject(error.response));
+        });
+    }
+
     post<T>(
         endpoint: string,
-        data: any,
+        data?: any,
         config?: AxiosRequestConfig<T>
     ): Promise<T> {
         return new Promise((resolve, reject) => {

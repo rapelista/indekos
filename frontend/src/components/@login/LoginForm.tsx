@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Spinner } from "@/components/ui/spinner";
 import { useLogin } from "@/hooks/api/auth/useLogin";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -21,6 +22,10 @@ const formSchema = z.object({
 });
 
 export const LoginForm = () => {
+    const [isOpenDialog, setIsOpenDialog] = useState(false);
+
+    const { isPending, isSuccess, isError, mutate } = useLogin();
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -29,12 +34,13 @@ export const LoginForm = () => {
         },
     });
 
-    const { isPending, isSuccess, isError, mutate, reset } = useLogin();
-
     const onSubmit = (values: z.infer<typeof formSchema>) => {
         mutate(values, {
             onSuccess: ({ access_token }) => {
                 localStorage.setItem("token", access_token);
+            },
+            onSettled: () => {
+                setIsOpenDialog(true);
             },
         });
     };
@@ -91,10 +97,10 @@ export const LoginForm = () => {
             </Form>
 
             <LoginDialog
-                open={isSuccess || isError}
                 success={isSuccess}
                 error={isError}
-                continue={reset}
+                open={isOpenDialog}
+                onOpenChange={setIsOpenDialog}
             />
         </>
     );

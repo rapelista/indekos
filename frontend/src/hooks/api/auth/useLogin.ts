@@ -1,4 +1,4 @@
-import ApiService from "@/components/services/ApiService";
+import ApiService from "@/services/ApiService";
 import { useMutation } from "@tanstack/react-query";
 
 interface ILoginBody {
