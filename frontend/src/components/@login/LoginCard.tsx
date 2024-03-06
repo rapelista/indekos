@@ -10,7 +10,7 @@ import {
 
 export const LoginCard = () => {
     return (
-        <Card className="lg:w-1/3">
+        <Card className="lg:w-1/3 mx-auto">
             <CardHeader>
                 <CardTitle>Login</CardTitle>
                 <CardDescription>

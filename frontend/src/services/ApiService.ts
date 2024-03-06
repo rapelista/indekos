@@ -12,6 +12,21 @@ api.interceptors.request.use((config) => {
     return config;
 });
 
+api.interceptors.response.use(
+    (response) => {
+        return response;
+    },
+    (error) => {
+        if (
+            error.response.status === 401 &&
+            localStorage.getItem("token") !== null
+        ) {
+            localStorage.removeItem("token");
+            window.location.reload();
+        }
+    }
+);
+
 class ApiService {
     get<T>(endpoint: string, config?: AxiosRequestConfig<T>): Promise<T> {
         return new Promise((resolve, reject) => {

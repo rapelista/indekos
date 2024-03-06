@@ -79,6 +79,7 @@ export const LoginForm = () => {
                                     <Input
                                         placeholder="Masukkan password"
                                         type="password"
+                                        autoComplete="off"
                                         {...field}
                                     />
                                 </FormControl>
