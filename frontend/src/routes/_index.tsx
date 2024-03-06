@@ -1,5 +1,6 @@
 import { MainLayout } from "@/layouts/MainLayout";
 import { DashboardPage } from "@/pages/DashboardPage";
+import { FloorsPage } from "@/pages/FloorsPage";
 import { FurnituresPage } from "@/pages/FurnituresPage";
 import { HomePage } from "@/pages/HomePage";
 import { LoginPage } from "@/pages/LoginPage";
@@ -32,6 +33,10 @@ export const router = createHashRouter([
             {
                 path: "/rooms",
                 element: <RoomsPage />,
+            },
+            {
+                path: "/floors",
+                element: <FloorsPage />,
             },
             {
                 path: "/furnitures",

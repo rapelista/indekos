@@ -7,7 +7,7 @@ export const MainLayout = () => {
     return token ? (
         <div className="min-h-screen min-w-screen">
             <Navbar />
-            <div className="container mt-6">
+            <div className="container py-6 space-y-4">
                 <Outlet />
             </div>
         </div>

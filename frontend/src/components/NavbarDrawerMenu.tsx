@@ -42,6 +42,11 @@ export const NavbarDrawerMenu = ({ close }: INavbarDrawerMenu) => {
             icon: DoorClosed,
         },
         {
+            text: "Lantai",
+            link: "/floors",
+            icon: DoorClosed,
+        },
+        {
             text: "Furnitur",
             link: "/furnitures",
             icon: BedIcon,
