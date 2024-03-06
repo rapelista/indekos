@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/alert-dialog";
 
 import { ShieldCheck, ShieldOff } from "lucide-react";
+import { useNavigate } from "react-router";
 
 type LoginDialogProps = {
     open: boolean;
@@ -23,6 +24,7 @@ export const LoginDialog = ({
     error,
     continue: onContinue,
 }: LoginDialogProps) => {
+    const navigate = useNavigate();
     return (
         <AlertDialog open={open}>
             <AlertDialogContent>
@@ -37,7 +39,12 @@ export const LoginDialog = ({
                             </AlertDialogDescription>
                         </AlertDialogHeader>
                         <AlertDialogFooter>
-                            <AlertDialogAction onClick={onContinue}>
+                            <AlertDialogAction
+                                onClick={() => {
+                                    navigate("/dashboard");
+                                    onContinue();
+                                }}
+                            >
                                 Dashboard
                             </AlertDialogAction>
                         </AlertDialogFooter>

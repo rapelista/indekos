@@ -1,8 +1,14 @@
 import ApiService from "@/components/services/ApiService";
 import { useMutation } from "@tanstack/react-query";
 
+type LoginBodyType = {
+    email: string;
+    password: string;
+};
+
 export const useLogin = () => {
     return useMutation({
-        mutationFn: async (data) => await ApiService.post("/auth/login", data),
+        mutationFn: async (data: LoginBodyType) =>
+            await ApiService.post("/auth/login", data),
     });
 };

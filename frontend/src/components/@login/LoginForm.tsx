@@ -32,7 +32,7 @@ export const LoginForm = () => {
     const { isPending, isSuccess, isError, mutate, reset } = useLogin();
 
     const onSubmit = (values: z.infer<typeof formSchema>) => {
-        console.log(values);
+        mutate(values);
     };
 
     return (
