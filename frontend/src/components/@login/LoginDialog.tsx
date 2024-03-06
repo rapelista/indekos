@@ -2,7 +2,6 @@ import {
     AlertDialog,
     AlertDialogAction,
     AlertDialogContent,
-    AlertDialogDescription,
     AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle,
@@ -32,12 +31,10 @@ export const LoginDialog = ({
                     <>
                         <AlertDialogHeader>
                             <AlertDialogTitle>Login berhasil!</AlertDialogTitle>
-                            <AlertDialogDescription>
-                                <div className="mx-auto w-fit p-8 rounded-full bg-blue-600 text-white">
-                                    <ShieldCheck className="h-16 w-16" />
-                                </div>
-                            </AlertDialogDescription>
                         </AlertDialogHeader>
+                        <div className="mx-auto w-fit p-8 rounded-full bg-blue-600 text-white">
+                            <ShieldCheck className="h-16 w-16" />
+                        </div>
                         <AlertDialogFooter>
                             <AlertDialogAction
                                 onClick={() => {
@@ -54,12 +51,11 @@ export const LoginDialog = ({
                     <>
                         <AlertDialogHeader>
                             <AlertDialogTitle>Login gagal!</AlertDialogTitle>
-                            <AlertDialogDescription>
-                                <div className="mx-auto w-fit p-8 rounded-full bg-red-600 text-white">
-                                    <ShieldOff className="h-16 w-16" />
-                                </div>
-                            </AlertDialogDescription>
                         </AlertDialogHeader>
+
+                        <div className="mx-auto w-fit p-8 rounded-full bg-red-600 text-white">
+                            <ShieldOff className="h-16 w-16" />
+                        </div>
                         <AlertDialogFooter>
                             <AlertDialogAction onClick={onContinue}>
                                 Ulangi

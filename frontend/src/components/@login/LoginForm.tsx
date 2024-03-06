@@ -32,7 +32,11 @@ export const LoginForm = () => {
     const { isPending, isSuccess, isError, mutate, reset } = useLogin();
 
     const onSubmit = (values: z.infer<typeof formSchema>) => {
-        mutate(values);
+        mutate(values, {
+            onSuccess: ({ access_token }) => {
+                localStorage.setItem("token", access_token);
+            },
+        });
     };
 
     return (

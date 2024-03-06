@@ -14,7 +14,7 @@ export const LoginCard = () => {
             <CardHeader>
                 <CardTitle>Login</CardTitle>
                 <CardDescription>
-                    Silahkan masukkan username dan password untuk dapat login
+                    Silahkan masukkan email dan password untuk dapat login
                 </CardDescription>
             </CardHeader>
             <CardContent>
