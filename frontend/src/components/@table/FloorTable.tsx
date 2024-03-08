@@ -1,13 +1,10 @@
 import { DataTable } from "@/components/ui/data-table";
+import { useGetFloors } from "@/hooks/api/floors/useGetRooms";
 import { useFloorTable } from "@/hooks/api/table/useFloorTable";
-import { Floor } from "@/lib/types";
 
-interface IFloorTable {
-    data: Floor[];
-}
-
-export const FloorTable = ({ data }: IFloorTable) => {
+export const FloorTable = () => {
     const { columns } = useFloorTable();
+    const { data } = useGetFloors();
 
-    return <DataTable columns={columns} data={data} />;
+    return data && <DataTable columns={columns} data={data} />;
 };

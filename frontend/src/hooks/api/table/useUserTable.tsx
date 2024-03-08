@@ -17,17 +17,14 @@ export const useUserTable = () => {
     const columns: ColumnDef<User>[] = [
         {
             accessorKey: "name",
-            id: "Name",
             header: ({ column }) => <DataTableColumnHeader column={column} />,
         },
         {
             accessorKey: "email",
-            id: "Email",
             header: ({ column }) => <DataTableColumnHeader column={column} />,
         },
         {
             accessorKey: "role.name",
-            id: "Role",
             header: ({ column }) => <DataTableColumnHeader column={column} />,
         },
         {

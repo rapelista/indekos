@@ -15,6 +15,8 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
+            $table->float('width');
+            $table->float('length');
             $table->foreignIdFor(Floor::class);
             $table->timestamps();
         });

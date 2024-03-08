@@ -1,4 +1,4 @@
-import { Floor } from "@/lib/types";
+import { Room } from "@/lib/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
 
@@ -13,20 +13,24 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { DataTableColumnHeader } from "@/components/ui/data-table-column-header";
 
-export const useFloorTable = () => {
-    const columns: ColumnDef<Floor>[] = [
+export const useRoomTable = () => {
+    const columns: ColumnDef<Room>[] = [
         {
             accessorKey: "name",
             header: ({ column }) => <DataTableColumnHeader column={column} />,
         },
         {
-            accessorKey: "rooms",
-            id: "total_kamar",
+            accessorKey: "width",
             header: ({ column }) => <DataTableColumnHeader column={column} />,
-            cell: ({ row }) => {
-                const floor = row.original;
-                return <>{`${floor.rooms.length} Kamar`}</>;
-            },
+        },
+        {
+            accessorKey: "length",
+            header: ({ column }) => <DataTableColumnHeader column={column} />,
+        },
+        {
+            accessorKey: "floor.name",
+            id: "lantai",
+            header: ({ column }) => <DataTableColumnHeader column={column} />,
         },
         {
             id: "actions",

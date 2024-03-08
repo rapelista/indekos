@@ -30,10 +30,22 @@ Route::group([
         Route::get('me', [AuthController::class, 'me']);
     });
 
+    Route::group([
+        'prefix' => 'floors',
+    ], function () {
+        Route::get('/', [FloorController::class, 'index']);
+        Route::post('/', [FloorController::class, 'create']);
+    });
+
+    Route::group([
+        'prefix' => 'rooms',
+    ], function() {
+        Route::get('/', [RoomController::class, 'index']);
+        Route::post('/', [RoomController::class, 'create']);
+    });
+
     Route::resources([
         'users' => UserController::class,
-        'floors' => FloorController::class,
-        'rooms' => RoomController::class,
     ]);
 
 });

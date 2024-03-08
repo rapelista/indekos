@@ -1,22 +1,15 @@
+import { FloorCreate } from "@/components/@floor/FloorCreate";
 import { FloorTable } from "@/components/@table/FloorTable";
-import { Button } from "@/components/ui/button";
 import { H3 } from "@/components/ui/typography";
-import { useGetFloors } from "@/hooks/api/floors/useGetRooms";
-import { PlusIcon } from "lucide-react";
 
 export const FloorsPage = () => {
-    const { data } = useGetFloors();
-
     return (
         <>
-            <div className="flex justify-between items-center">
+            <div className="flex items-center justify-between">
                 <H3 className="opacity-[0.9]">Lantai</H3>
-                <Button>
-                    <PlusIcon className="me-3" /> Tambah
-                </Button>
+                <FloorCreate />
             </div>
-
-            {data && <FloorTable data={data} />}
+            <FloorTable />
         </>
     );
 };

@@ -19,6 +19,8 @@ class RoomSeeder extends Seeder
         DB::table('rooms')->insert([
             'name' => 'A01',
             'floor_id' => 1,
+            'width' => 3,
+            'length' => 3.5,
             'created_at' => $now,
             'updated_at' => $now
         ]);

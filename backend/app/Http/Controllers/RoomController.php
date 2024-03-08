@@ -22,7 +22,9 @@ class RoomController extends Controller
      */
     public function create()
     {
-        //
+        $room = Room::create(request()->all());
+
+        return response()->json($room);
     }
 
     /**

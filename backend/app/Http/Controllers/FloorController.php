@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Floor;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\isNull;
 
 class FloorController extends Controller
 {
@@ -22,7 +23,19 @@ class FloorController extends Controller
      */
     public function create()
     {
-        //
+        $floor = new Floor();
+        $name = request('name');
+
+        if(!is_null($name)) {
+            $floor->name = request('name');
+        } else {
+            $total_floors = Floor::all()->count();
+            $floor->name = 'Lantai ' . $total_floors + 1;
+        }
+
+        $floor->save();
+
+        return response()->json($floor);
     }
 
     /**
