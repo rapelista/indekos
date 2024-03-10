@@ -1,5 +1,5 @@
 import { FloorCreate } from "@/components/@floor/FloorCreate";
-import { FloorTable } from "@/components/@table/FloorTable";
+import { FloorTable } from "@/components/@floor/FloorTable";
 import { H3 } from "@/components/ui/typography";
 
 export const FloorsPage = () => {

@@ -35,6 +35,7 @@ Route::group([
     ], function () {
         Route::get('/', [FloorController::class, 'index']);
         Route::post('/', [FloorController::class, 'create']);
+        // Route::delete('/{:floorId}', [FloorController::class, 'delete']);
     });
 
     Route::group([

@@ -1,4 +1,4 @@
-import { Floor } from "@/lib/types";
+import { Action, Floor } from "@/lib/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
 
@@ -12,8 +12,15 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { DataTableColumnHeader } from "@/components/ui/data-table-column-header";
+import { useTableAction } from "@/hooks/table/useTableAction";
 
-export const useFloorTable = () => {
+interface IuseFloorTable {
+    actions?: Action[] | undefined;
+}
+
+export const useFloorTable = ({ actions: initialActions }: IuseFloorTable) => {
+    const actions = useTableAction(initialActions);
+
     const columns: ColumnDef<Floor>[] = [
         {
             accessorKey: "name",
@@ -49,6 +56,24 @@ export const useFloorTable = () => {
                             >
                                 Copy payment ID
                             </DropdownMenuItem>
+                            {actions.actions?.includes(Action.UPDATE) && (
+                                <DropdownMenuItem
+                                    onClick={() => {
+                                        actions.setActionUpdate<Floor>(floor);
+                                    }}
+                                >
+                                    Update
+                                </DropdownMenuItem>
+                            )}
+                            {actions.actions?.includes(Action.DELETE) && (
+                                <DropdownMenuItem
+                                    onClick={() => {
+                                        actions.setActionDelete<Floor>(floor);
+                                    }}
+                                >
+                                    Delete
+                                </DropdownMenuItem>
+                            )}
                             <DropdownMenuSeparator />
                             <DropdownMenuItem>View customer</DropdownMenuItem>
                             <DropdownMenuItem>
@@ -63,5 +88,6 @@ export const useFloorTable = () => {
 
     return {
         columns,
+        actions,
     };
 };

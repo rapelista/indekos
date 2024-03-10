@@ -7,6 +7,7 @@ import {
     FormItem,
     FormLabel,
 } from "@/components/ui/form";
+
 import { Input } from "@/components/ui/input";
 import { useCreateRoom } from "@/hooks/api/rooms/useCreateRoom";
 import { useGetRooms } from "@/hooks/api/rooms/useGetRooms";
@@ -23,6 +24,7 @@ import {
 } from "@/components/ui/select";
 import { useGetFloors } from "@/hooks/api/floors/useGetRooms";
 import { Muted } from "@/components/ui/typography";
+
 interface IRoomCreateForm {
     close: () => void;
 }
@@ -36,7 +38,7 @@ export const RoomCreateForm = ({ close }: IRoomCreateForm) => {
         name: z.string().max(32),
         width: z.string().transform((string) => parseFloat(string)),
         length: z.string().transform((string) => parseFloat(string)),
-        floor_id: z.string().transform((string) => parseFloat(string)),
+        floor_id: z.string().transform((string) => parseInt(string)),
     });
 
     const form = useForm<z.infer<typeof formSchema>>({

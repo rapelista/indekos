@@ -32,3 +32,13 @@ export interface Floor {
     updated_at: string;
     rooms: Room[];
 }
+
+export enum Action {
+    UPDATE = "UPDATE",
+    DELETE = "DELETE",
+}
+
+export interface IAction {
+    type: Action;
+    data?: any;
+}

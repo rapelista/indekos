@@ -1,5 +1,5 @@
 import { DataTable } from "@/components/ui/data-table";
-import { useUserTable } from "@/hooks/api/table/useUserTable";
+import { useUserTable } from "@/hooks/table/useUserTable";
 import { User } from "@/lib/types";
 
 interface IUserTable {
